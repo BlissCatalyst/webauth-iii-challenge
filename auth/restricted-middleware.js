@@ -11,9 +11,10 @@ module.exports = (req, res, next) => {
         res.status(401).json({ you: "can't touch this!" });
       } else {
         req.decodedJWT = decodedToken;
+        next();
       }
     });
   } else {
     res.status(401).json({ you: "shall not pass!" });
   }
-}
+};
